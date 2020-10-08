@@ -107,7 +107,7 @@ class Presto(BaseQueryRunner):
             password=(self.configuration.get("password") or None),
             catalog=self.configuration.get("catalog", "hive"),
             schema=self.configuration.get("schema", "default"),
-            ssl=self.configuration.get("ssl","default"),
+            ssl=self.configuration.get("sslmode","default"),
             SSLKeyStorePath=self.configuration.get("sslcert","default"),
             SSLKeyStorePwd=self.configuration.get("sslkey","default"),
         )
