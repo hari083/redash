@@ -46,9 +46,6 @@ class Presto(BaseQueryRunner):
                 "catalog": {"type": "string"},
                 "username": {"type": "string"},
                 "password": {"type": "string"},
-                "sslmode": {"type": "string"},
-                "sslkey": {"type": "string"},
-                "sslcert": {"type": "string"},
             },
             "order": [
                 "host",
@@ -58,9 +55,6 @@ class Presto(BaseQueryRunner):
                 "password",
                 "schema",
                 "catalog",
-                "sslmode",
-                "sslkey",
-                "sslcert",
             ],
             "required": ["host"],
         }
@@ -107,9 +101,6 @@ class Presto(BaseQueryRunner):
             password=(self.configuration.get("password") or None),
             catalog=self.configuration.get("catalog", "hive"),
             schema=self.configuration.get("schema", "default"),
-            ssl=self.configuration.get("sslmode","default"),
-            SSLKeyStorePath=self.configuration.get("sslcert","default"),
-            SSLKeyStorePwd=self.configuration.get("sslkey","default"),
         )
 
         cursor = connection.cursor()
