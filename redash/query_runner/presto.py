@@ -101,6 +101,7 @@ class Presto(BaseQueryRunner):
             password=(self.configuration.get("password") or None),
             catalog=self.configuration.get("catalog", "hive"),
             schema=self.configuration.get("schema", "default"),
+            requests_kwargs={'verify':False},
         )
 
         cursor = connection.cursor()
